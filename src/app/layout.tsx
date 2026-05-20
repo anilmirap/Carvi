@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import "./globals.css";
 
-
 const navItems = [
   { href: "/", label: "Overview" },
   { href: "/dashboard", label: "Dashboard" },
@@ -26,29 +25,37 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="bg-zinc-50 text-zinc-900 antialiased">
-        <div className="min-h-screen">
-          <header className="border-b border-zinc-200 bg-white">
-            <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-4">
-              <div>
-                <p className="text-xs font-medium uppercase tracking-[0.24em] text-zinc-500">Carvi</p>
-                <p className="text-sm text-zinc-700">Workshop Operations</p>
+      <body>
+        <div className="min-h-screen bg-zinc-100 text-zinc-900">
+          <div className="mx-auto grid min-h-screen max-w-[1600px] grid-cols-1 lg:grid-cols-[260px_minmax(0,1fr)]">
+            <aside className="border-r border-zinc-200 bg-white px-5 py-6">
+              <div className="space-y-2 border-b border-zinc-200 pb-6">
+                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-zinc-500">Carvi</p>
+                <p className="text-sm font-medium text-zinc-900">Özel serviste yeni standart.</p>
+                <p className="text-xs text-zinc-600">Workshop Operations MVP</p>
               </div>
-              <p className="text-sm text-zinc-500">MVP Scaffold</p>
+
+              <nav className="mt-6 space-y-1">
+                {navItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="block rounded-md px-3 py-2 text-sm font-medium text-zinc-700 transition hover:bg-zinc-100 hover:text-zinc-900"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </nav>
+            </aside>
+
+            <div className="flex min-h-screen flex-col">
+              <header className="border-b border-zinc-200 bg-white px-6 py-5 lg:px-10">
+                <p className="text-xs font-medium uppercase tracking-[0.18em] text-zinc-500">Workshop workspace</p>
+                <h1 className="mt-1 text-lg font-semibold tracking-tight text-zinc-900">Operations platform shell</h1>
+              </header>
+              <main className="flex-1 px-6 py-8 lg:px-10">{children}</main>
             </div>
-            <nav className="mx-auto flex w-full max-w-7xl flex-wrap gap-2 px-6 pb-4">
-              {navItems.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="rounded-md border border-zinc-200 bg-white px-3 py-1.5 text-sm text-zinc-700 transition hover:border-zinc-400 hover:text-zinc-900"
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </nav>
-          </header>
-          <main className="mx-auto w-full max-w-7xl px-6 py-10">{children}</main>
+          </div>
         </div>
       </body>
     </html>
