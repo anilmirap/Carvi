@@ -27,18 +27,20 @@ The first release focuses on the **workshop operations web app**.
 
 Customer mobile experience will come after operational foundations are stable.
 
-## Repository Purpose (Current Phase)
+## Repository Purpose
 
-This repository currently contains product and delivery documentation only.
+This repository contains both:
+- Product and delivery documentation for strategy and scope alignment
+- The initial Next.js scaffold for the workshop operations MVP web application
 
-At this stage we are defining:
-- Product vision and boundaries
-- MVP scope and non-goals
-- Domain model and data language
-- Engineering execution rules
-- Delivery roadmap
+## Local Development
 
-No application source code, framework setup, or placeholder implementation is included yet.
+```bash
+npm install
+npm run dev
+npm run build
+npm run lint
+```
 
 ## Documents
 
@@ -47,6 +49,7 @@ No application source code, framework setup, or placeholder implementation is in
 - [`DOMAIN_MODEL.md`](./DOMAIN_MODEL.md) — Core entities, relationships, and terminology
 - [`CODEX_RULES.md`](./CODEX_RULES.md) — Development and contribution rules for future implementation
 - [`ROADMAP.md`](./ROADMAP.md) — Delivery phases from MVP to expansion
+- [`TECHNICAL_ARCHITECTURE.md`](./TECHNICAL_ARCHITECTURE.md) — MVP architecture direction and implementation principles
 
 ## Brand Personality Guidance
 
@@ -61,7 +64,3 @@ All future product and UX decisions should reflect:
 - Trustworthy
 - Clear
 - Accessible
-
-## Working Principle
-
-Before adding code, every team member should understand and align with these documents to keep execution consistent with product intent.
